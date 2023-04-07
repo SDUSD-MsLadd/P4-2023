@@ -37,11 +37,33 @@ body{
    <script>
       //variables
       const box = document.querySelector('#click-box');
+      let score = 0;
+      const scoreDisp = document.querySelector('.score');
+
+
+      function getRandInt(min = 1, max=100){
+
+         return Math.floor( Math.random() * (max-min + 1) )+min;
+      }
 
       function moveBox(){
-         alert('clicked');
+         score = score+1;
+         //alert(score);
+         scoreDisp.textContent = score;
+         let newHeight = getRandInt(10, 60);
+         let newWidth = getRandInt(10, 60);
+         let newTop = getRandInt(0, 400-newHeight);
+         let newLeft = getRandInt(0, 400-newWidth);
+         let r = getRandInt(0,255);
+         let g = getRandInt(0,255);
+         let b = getRandInt(0,255);
 
-
+         box.style.height = newHeight+'px';
+         box.style.width = newWidth+'px';
+         box.style.top = newTop+'px';
+         box.style.left = newLeft+'px';
+         box.style.backgroundColor = 'rgb('+r+','+g+', '+b+')';
+      
       }
 
 
